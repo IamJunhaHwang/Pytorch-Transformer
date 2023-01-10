@@ -1,2 +1,3 @@
-# Toy-Transformer
-Toy Emplementation of Transformer Using Pytorch
+# Pytorch Implementation of Transformer
+
+This is a Pytorch Implementation of Transformer(Attention is all you need)
