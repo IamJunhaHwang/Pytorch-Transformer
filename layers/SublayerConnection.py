@@ -5,7 +5,7 @@ class SublayerConnection(nn.Module):
     """
     Residual Connection + Layer Normalization
 
-    Note that it was updated after writing the paper about below things
+    Note that it was updated about below things after writing the paper.
 
     1. output is changed to x + SubLayer(LayerNorm(x))
     2. Layer Normalization is added the final outputs of encoder/decoder at last
