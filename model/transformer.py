@@ -21,6 +21,12 @@ class Transformer(nn.Module):
         return dout
 
     def forward(self, x, z):
+        """
+
+        :param x:
+        :param z:
+        :return:
+        """
         context = self.encode(x)
         target = self.decode(context, z)
 

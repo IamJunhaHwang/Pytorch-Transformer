@@ -11,6 +11,11 @@ class Encoder(nn.Module):
         self.norm = LayerNorm(encoder_block.size)
 
     def forward(self, x):
+        """
+
+        :param x:
+        :return:
+        """
         for layer in self.layers:
             x = layer(x)
 

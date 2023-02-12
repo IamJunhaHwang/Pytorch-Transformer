@@ -12,6 +12,12 @@ class EncoderBlock(nn.Module):
         self.sublayer = nn.ModuleList([SublayerConnection(size, dropout) for _ in range(2)])
 
     def forward(self, x, mask):
+        """
+
+        :param x:
+        :param mask:
+        :return:
+        """
         x = self.sublayer[0](x, lambda x: self.attention(x, x, x, mask))
 
         return self.sublayer[1](x, self.ffnn)
