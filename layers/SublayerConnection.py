@@ -1,8 +1,9 @@
 import torch.nn as nn
+from Transformer.layers.LayerNorm import LayerNorm
 
 class SublayerConnection(nn.Module):
     """
-    Residual Connection
+    Residual Connection + Layer Normalization
     """
 
     def __init__(self, size, dropout):
