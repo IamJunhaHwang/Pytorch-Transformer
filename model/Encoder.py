@@ -1,5 +1,6 @@
 import torch.nn as nn
 import copy
+from Transformer.layers.LayerNorm import LayerNorm
 
 class Encoder(nn.Module):
     """Encoder is consist with N-layers"""
@@ -7,10 +8,10 @@ class Encoder(nn.Module):
     def __init__(self, encoder_block, N):
         super(Encoder, self).__init__()
         self.layers = nn.ModuleList([copy.deepcopy(encoder_block) for _ in range(N)])  # N-Encoder Blocks
+        self.norm = LayerNorm(encoder_block.size)
 
     def forward(self, x):
-        out = x
         for layer in self.layers:
-            out = layer(out)
+            x = layer(x)
 
-        return out
+        return self.norm(x)
