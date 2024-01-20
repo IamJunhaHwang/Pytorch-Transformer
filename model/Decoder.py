@@ -1,6 +1,6 @@
 import torch.nn as nn
 import copy
-from Transformer.layers.LayerNorm import LayerNorm
+from layers.LayerNorm import LayerNorm
 
 class Decoder(nn.Module):
     """Decoder is consist with N-layers"""

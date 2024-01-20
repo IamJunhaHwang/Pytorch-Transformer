@@ -2,7 +2,7 @@ import torch.nn as nn
 
 class Transformer(nn.Module):
     """
-    Transformer Body
+    Transformer Body - Encoder-Decoder Architecture
     """
 
     def __init__(self, encoder, decoder):
@@ -20,14 +20,13 @@ class Transformer(nn.Module):
         dout = self.decoder(c, z)
         return dout
 
-    def forward(self, x, z):
+    def forward(self, x, z, mask):
         """
-
         :param x:
         :param z:
         :return:
         """
-        context = self.encode(x)
+        context = self.encode(x, mask)
         target = self.decode(context, z)
 
         return target
