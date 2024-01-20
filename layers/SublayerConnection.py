@@ -9,7 +9,7 @@ class SublayerConnection(nn.Module):
     Note that it was updated about below things after writing the paper.
     - Ref: https://github.com/harvardnlp/annotated-transformer/issues/92
 
-    1. output is changed to x + SubLayer(LayerNorm(x))
+    1. output is changed to x + SubLayer(LayerNorm(x)), not LayerNorm(x+Sublayer(x))
     2. Layer Normalization is added the final outputs of encoder/decoder at last
     """
 

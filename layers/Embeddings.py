@@ -9,4 +9,5 @@ class Embeddings(nn.Module):
         self.d_model = d_model
 
     def forward(self, x):
+        # In the embedding layers, we multiply those weights by sqrt(d_model)
         return self.lut(x) * math.sqrt(self.d_model)

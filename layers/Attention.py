@@ -6,12 +6,13 @@ def attention(query, key, value, mask=None, dropout=None):
     """Compute Scaled Dot Product Attention
     query, key, value == [n_batch, h, seq_len, d_k]
     batch_size : mini-batch size
+    h : # of head
     seq_len : input sequence length
     d_k : dimension of Key(Q, V도 같음)
     """
 
     d_k = query.size(-1)
-    scores = torch.matmul(query, key.transpose(-2,-1)) / math.sqrt(d_k)
+    scores = torch.matmul(query, key.transpose(-2, -1)) / math.sqrt(d_k)
     # scores = [n_batch * h * seq_len * d_k] matmul [n_batch * h * d_k * seq_len](transposed) / sqrt(d_k)
     # scores == [n_batch * h * seq_len * seq_len]
 

@@ -6,8 +6,8 @@ class MultiHeadAttention(nn.Module):
     """
     h : num of head
     d_model : Whole model size
-    d_k : 병렬 처리를 위해 나눈 차원
-    linears : Q, K ,V, Linear(attention 이후의)  [각 가중치 행렬 역할]
+    d_k : 병렬 처리를 위해 나눈 차원; d_embed
+    linears : Q, K ,V, Linear layer(attention 이후의)  [각 가중치 행렬 역할]
     """
 
     def __init__(self, h, d_model, dropout=0.1):

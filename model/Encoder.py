@@ -4,7 +4,9 @@ from layers.LayerNorm import LayerNorm
 
 
 class Encoder(nn.Module):
-    """Encoder is consist with N-layers"""
+    """
+    The encoder is composed of a stack of N identical layers.
+    """
 
     def __init__(self, encoder_block, N):
         super(Encoder, self).__init__()
@@ -19,4 +21,5 @@ class Encoder(nn.Module):
         for layer in self.layers:
             x = layer(x, mask)
 
+        # why norm??
         return self.norm(x)
