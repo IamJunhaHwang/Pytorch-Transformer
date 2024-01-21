@@ -2,8 +2,11 @@ import torch.nn as nn
 import copy
 from layers.LayerNorm import LayerNorm
 
+
 class Decoder(nn.Module):
-    """Decoder is consist with N-layers"""
+    """
+    The decoder is also composed of a stack of N identical layers.
+    """
 
     def __init__(self, decoder_block, N):
         super(Decoder, self).__init__()
