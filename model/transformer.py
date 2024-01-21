@@ -1,4 +1,5 @@
 import torch.nn as nn
+import torch
 
 
 class Transformer(nn.Module):
@@ -15,10 +16,16 @@ class Transformer(nn.Module):
         out = self.encoder(src, src_mask)
         return out
 
-    def decode(self, c, z):
+    def decode(self, encoder_out, src_mask, tgt, tgt_mask):
         # c: context, z: some sentence
-        out = self.decoder(c, z)
+        out = self.decoder(tgt, encoder_out, src_mask, tgt_mask)
         return out
+
+    def make_subsequent_mask(size):
+        attn_shape = (1, size, size)
+        subsequent_mask = torch.triu(torch.ones(attn_shape), diagonal=1).type(torch.uint8)
+
+        return subsequent_mask == 0
 
     def forward(self, src, tgt, src_mask, tgt_mask):
         """
@@ -27,6 +34,6 @@ class Transformer(nn.Module):
         :return:
         """
         context = self.encode(src, src_mask)
-        target = self.decode(context, tgt_mask)
+        target = self.decode(context, src_mask, tgt, tgt_mask)
 
         return target

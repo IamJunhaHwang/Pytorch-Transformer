@@ -18,8 +18,8 @@ class EncoderBlock(nn.Module):
 
     def forward(self, x, mask):
         """
-        :param x: input for residual connection
-        :param mask: mask for padding
+        :param x: Input for residual connection
+        :param mask: Mask for padding
         :return:
         """
 

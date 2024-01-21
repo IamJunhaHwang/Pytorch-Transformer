@@ -18,16 +18,16 @@ class DecoderBlock(nn.Module):
         self.feed_forward = feed_forward
         self.sublayer = nn.ModuleList([SublayerConnection(size, dropout) for _ in range(3)])
 
-    def forward(self, x, memory, src_mask, tgt_mask):
+    def forward(self, x, encoder_out, src_mask, tgt_mask):
         """
         :param x:
-        :param memory:
+        :param encoder_out: Encoder output
         :param src_mask:
         :param tgt_mask:
         :return:
         """
-        m = memory
+        e = encoder_out
         x = self.sublayer[0](x, lambda x: self.self_attention(x, x, x, tgt_mask))
-        x = self.sublayer[1](x, lambda x: self.cross_attention(x, m, m, src_mask))
+        x = self.sublayer[1](x, lambda x: self.cross_attention(x, e, e, src_mask))
 
         return self.sublayer[2](x, self.ffnn)
