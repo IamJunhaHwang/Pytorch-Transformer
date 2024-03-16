@@ -1,5 +1,5 @@
 import torch.nn as nn
-from layers.SublayerConnection import SublayerConnection
+from utils.SublayerConnection import SublayerConnection
 
 
 class EncoderBlock(nn.Module):

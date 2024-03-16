@@ -1,6 +1,6 @@
 import torch.nn as nn
 import copy
-from layers.LayerNorm import LayerNorm
+from utils.LayerNorm import LayerNorm
 
 
 class Encoder(nn.Module):

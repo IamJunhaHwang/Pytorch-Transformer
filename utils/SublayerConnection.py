@@ -1,5 +1,5 @@
 import torch.nn as nn
-from layers.LayerNorm import LayerNorm
+from utils.LayerNorm import LayerNorm
 
 
 class SublayerConnection(nn.Module):
