@@ -24,7 +24,7 @@ class Transformer(nn.Module):
         out = self.decoder(self.tgt_embed(tgt), encoder_out, src_mask, tgt_mask)
         return out
 
-    def make_subsequent_mask(size):
+    def make_subsequent_mask(self, size):
         "Mask out subsequent positions."
 
         attn_shape = (1, size, size)

@@ -15,7 +15,7 @@ class DecoderBlock(nn.Module):
         self.size = size
         self.self_attention = self_attention
         self.cross_attention = cross_attention
-        self.feed_forward = feed_forward
+        self.ffnn = feed_forward
         self.sublayer = nn.ModuleList([SublayerConnection(size, dropout) for _ in range(3)])
 
     def forward(self, x, encoder_out, src_mask, tgt_mask):
